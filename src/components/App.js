@@ -7,12 +7,17 @@ import Login from "./authentication/login"
 import PrivateRoute from "./authentication/PrivateRoute"
 import ForgotPassword from "./authentication/forgotPassword"
 import UpdateProfile from "./authentication/updateProfile"
+import Dashboard from "./google-drive/Dashboard"
 
 function App() {
   return (
       <Router>
         <AuthProvider>
           <Routes>
+             {/* Drive */}
+            <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+     
+
             <Route path="/user" element={<PrivateRoute><Profile/></PrivateRoute>}/>
             <Route path="/updateProfile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>
             <Route  path="/signup" element={<Signup/>} />
