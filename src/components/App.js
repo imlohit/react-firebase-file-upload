@@ -1,13 +1,13 @@
 import React from "react"
-import Signup from "./signup"
+import Signup from "./authentication/signup"
 import { Container } from "react-bootstrap"
 import { AuthProvider } from "../contexts/AuthContext"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Dashboard from "./Dashboard"
-import Login from "./login"
-import PrivateRoute from "./PrivateRoute"
-import ForgotPassword from "./forgotPassword"
-import UpdateProfile from "./updateProfile"
+import Login from "./authentication/login"
+import PrivateRoute from "./authentication/PrivateRoute"
+import ForgotPassword from "./authentication/forgotPassword"
+import UpdateProfile from "./authentication/updateProfile"
 
 function App() {
   return (
