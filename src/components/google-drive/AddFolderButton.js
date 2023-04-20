@@ -2,6 +2,7 @@ import React ,{useState} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons"
 import { Button, Modal, Form } from "react-bootstrap"
+import { database } from "../../firebase"
 
 export default function AddFolderButton() {
     const [open, setOpen] = useState(false)
@@ -17,9 +18,15 @@ export default function AddFolderButton() {
     
       function handleSubmit(e) {
         e.preventDefault()
+        database.folders.add({
+          name: name,
+      
+        })
+
         setName("")
         closeModal()
         }
+        
   return (
     <>
       <Button onClick={openModal} variant="outline-success" size="sm">
