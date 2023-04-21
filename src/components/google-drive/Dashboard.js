@@ -6,9 +6,12 @@ import { faFolderPlus } from "@fortawesome/free-solid-svg-icons"
 import AddFolderButton from './AddFolderButton'
 import { useFolder } from '../../hooks/useFolder'
 import Folder from './Folder'
+import { useParams, useLocation } from "react-router-dom"
+
 
 export default function Dashboard() {
-  const {folder,childFolders}=useFolder("7wNMcbad2zb6rqFF81Xt")
+  const { folderId } = useParams()
+  const {folder,childFolders}=useFolder(folderId)
   console.log(childFolders)
   return (
     <div>
