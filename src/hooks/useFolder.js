@@ -1,6 +1,8 @@
 import { useReducer, useEffect } from "react"
 // import { useAuth } from "../contexts/AuthContext"
-// import { database } from "../firebase"
+import { database } from "../firebase"
+
+
 
 const ACTIONS = {
   SELECT_FOLDER: "select-folder",
@@ -59,32 +61,34 @@ export function useFolder(folderId = null, folder = null) {
         payload: { folder: ROOT_FOLDER },
       })
     }
-    },[folderId])
+
+    database.folders
+    .doc(folderId)
+    .get()
+    .then(doc => {
+        dispatch({
+            type: ACTIONS.UPDATE_FOLDER,
+            payload: { folder: database.formatDoc(doc) },
+        })
+    })
+    .catch(() => {
+    dispatch({
+        type: ACTIONS.UPDATE_FOLDER,
+        payload: { folder: ROOT_FOLDER }
+    })
+    })
+    }, [folderId])
 
     return state
 }
 //   const { currentUser } = useAuth()
 
+
  
 
 
 
-//     database.folders
-//       .doc(folderId)
-//       .get()
-//       .then(doc => {
-//         dispatch({
-//           type: ACTIONS.UPDATE_FOLDER,
-//           payload: { folder: database.formatDoc(doc) },
-//         })
-//       })
-//       .catch(() => {
-//         dispatch({
-//           type: ACTIONS.UPDATE_FOLDER,
-//           payload: { folder: ROOT_FOLDER },
-//         })
-//       })
-//   }, [folderId])
+
 
 //   useEffect(() => {
 //     return database.folders

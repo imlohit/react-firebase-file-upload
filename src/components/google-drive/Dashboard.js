@@ -7,7 +7,8 @@ import AddFolderButton from './AddFolderButton'
 import { useFolder } from '../../hooks/useFolder'
 
 export default function Dashboard() {
-  const {folder}=useFolder()
+  const {folder}=useFolder("7wNMcbad2zb6rqFF81Xt")
+  console.log(folder)
   return (
     <div>
       <NavbarComponent/>
