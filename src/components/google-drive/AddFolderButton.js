@@ -23,9 +23,9 @@ export default function AddFolderButton() {
         database.folders.add({
           name: name,
           // parentId,
-          userId:currentUser.uid
+          userId:currentUser.uid,
           // path,
-          // createdAt
+          createdAt:database.getCurrentTimestamp()
       
         })
 
