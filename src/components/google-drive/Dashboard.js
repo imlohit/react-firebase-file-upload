@@ -6,14 +6,17 @@ import { faFolderPlus } from "@fortawesome/free-solid-svg-icons"
 import AddFolderButton from './AddFolderButton'
 import { useFolder } from '../../hooks/useFolder'
 import Folder from './Folder'
-import { useParams, useLocation } from "react-router-dom"
+import { useParams,useLocation } from "react-router-dom"
 import FolderBreadcrumbs from './FolderBreadcrumbs'
 
 
 export default function Dashboard() {
   const { folderId } = useParams()
-  const {folder,childFolders}=useFolder(folderId)
-  console.log(childFolders)
+  const { state = {} } = useLocation()
+  // const {folder,childFolders}=useFolder(folderId,state.folder)
+  const { folder, childFolders } = useFolder(folderId, state !== null ? state.folder : undefined);
+
+  console.log(state)
   return (
     <div>
       <NavbarComponent/>
