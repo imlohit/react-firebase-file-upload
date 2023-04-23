@@ -1,6 +1,7 @@
 import firebase from  'firebase/compat/app'
 import 'firebase/compat/auth'
 import "firebase/compat/firestore"
+import "firebase/compat/storage"
 
 
 const firebaseConfig ={
@@ -26,6 +27,7 @@ export const database = {
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp
 }
 export const auth = app.auth()
+export const storage = app.storage()
 export default app
 
 
