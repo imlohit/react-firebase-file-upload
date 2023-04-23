@@ -8,6 +8,7 @@ import { useFolder } from '../../hooks/useFolder'
 import Folder from './Folder'
 import { useParams,useLocation } from "react-router-dom"
 import FolderBreadcrumbs from './FolderBreadcrumbs'
+import AddFileButton from './AddFileButton'
 
 
 export default function Dashboard() {
@@ -23,7 +24,7 @@ export default function Dashboard() {
       <Container fluid>
         <div className="d-flex align-items-center">
           <FolderBreadcrumbs currentFolder={folder} />
-          
+          <AddFileButton currentFolder={folder} />
           <AddFolderButton currentFolder={folder} />
         </div>
         {childFolders.length > 0 && (
